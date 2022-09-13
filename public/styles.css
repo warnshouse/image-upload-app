@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(6, 26, 27);
+}
+
+.upload-section {
+  max-width: 500px;
+  margin: 60px auto;
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
+
+form {
+  background-color: white;
+  padding: 30px;
+}
+
+form .input-group {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input,
+form textarea {
+  padding: 12px 20px;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  border: none;
+  background: rgb(37, 83, 3);
+  font-size: 18px;
+  color: white;
+  border-radius: 3px;
+  padding: 20px;
+  text-align: center;
+}
+
+.gallery-section {
+  margin: 60px auto;
+}
+
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.image-item {
+  display: block;
+  flex: 1 1 0px;
+  text-align: center;
+}
+
+.image-item h3,
+.image-item p {
+  color: white;
+}
+
+img {
+  display: block;
+  height: 250px;
+  margin: 0 auto;
+  width: 250px;
+}

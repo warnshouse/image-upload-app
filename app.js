@@ -10,11 +10,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 mongoose.connect(process.env.DB_STRING, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(client => {
-    console.log("Connected to database");
+    console.log(`MongoDB Connected: ${client.connection.host}`);
   })
   .catch(error => console.error(error));
 
@@ -48,7 +49,7 @@ app.post('/', upload.single("image"), (req, res, next) => {
     desc: req.body.desc,
     img: {
       data: fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
-      contentType: "image/png"
+      contentType: req.file.mimeType
     }
   };
 
@@ -73,6 +74,7 @@ app.listen(PORT, err => {
     throw err;
   }
   else {
-    console.log(`Server listening on port ${PORT}`)
+    console.log(`App is running on http://localhost:${PORT}`);
+    console.log('Press CTRL-C to stop');
   }
 });
